@@ -10,7 +10,7 @@ const GoogleLogin = () => {
       console.log("object", credentialResponse);
 
       const response = await axios.post(
-        "http://localhost:3001/api/user/google-login",
+        `${import.meta.env.VITE_API_BASE_URL}/user/google-login`,
         {
           token: credentialResponse.credential,
         }

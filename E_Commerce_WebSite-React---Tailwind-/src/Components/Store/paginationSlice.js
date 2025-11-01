@@ -16,7 +16,7 @@ const initialState = {
 
 export const getProducts = createAsyncThunk("getProducts", async ({ offset, limit, filters }) => {
   const { minPrice, maxPrice, categoryId ,title} = filters;
-  const response = await axios.get('http://localhost:3001/api/product/fetch', {
+  const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/product/fetch`, {
     params: {
       minPrice: minPrice,
       maxPrice: maxPrice,

@@ -6,7 +6,7 @@ import { addToCart } from "../Store/cartSlice"; // adjust this path to where you
 
 const ShopCard = ({ product }) => {
   const dispatch = useDispatch();
-  const imageUrl = `http://localhost:3001/${product.image?.replaceAll("\\", "/")}`;
+  const imageUrl = `${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll("\\", "/")}`;
   const isOutOfStock = product.stock === 0;
 
   const discountPercentage = Math.round(

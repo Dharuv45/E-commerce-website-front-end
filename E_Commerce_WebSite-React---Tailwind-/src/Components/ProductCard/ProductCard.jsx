@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
     
         <div className="relative h-48 md:h-56 overflow-hidden flex items-center justify-center bg-gray-100 p-4">
           <img
-            src={`http://localhost:3001/${product.image.replaceAll("\\", "/")}`}
+            src={`${VITE_API_BASE_URL_SOCKET}/${product.image.replaceAll("\\", "/")}`}
             alt={product.name}
             className="object-contain h-full w-full"
           />

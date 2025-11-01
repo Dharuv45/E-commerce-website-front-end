@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:3001/api/user/login", formData);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/login`, formData);
       console.log("ppoop",res)
       toast.success("Login successful!");
       console.log(res.data);

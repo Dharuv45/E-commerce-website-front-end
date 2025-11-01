@@ -13,7 +13,7 @@ const initialState = {
 
 export const getCategories = createAsyncThunk("getCategories",async ()=>{
 
-    let res = await  axios.get("http://localhost:3001/api/category/getall");
+    let res = await  axios.get(`${import.meta.env.VITE_API_BASE_URL}/category/getall`);
     console.log(res);
     
     return res.data;

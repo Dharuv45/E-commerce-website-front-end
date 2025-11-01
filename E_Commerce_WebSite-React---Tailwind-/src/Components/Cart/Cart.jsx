@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 import StripePayment from "../StripePayment";
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = `${VITE_API_BASE_URL_SOCKET}`;
 
 export default function Cart() {
   const cartArr = useSelector((state) => state.cart.cartArr);

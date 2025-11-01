@@ -12,7 +12,7 @@ export const syncCartToBackend = async (cartArr) => {
   const token = Cookies.get("auth_token")
   try {
     const response = await axios.post(
-      "http://localhost:3001/api/cart/create",
+      `${import.meta.env.VITE_API_BASE_URL}/cart/create`,
       formattedCart,{
         
         headers: {

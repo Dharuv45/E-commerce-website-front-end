@@ -80,12 +80,12 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/random/random")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/random/random`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((product) => ({
           productId: product._id,
-          image: `http://localhost:3001/${product.image?.replaceAll("\\", "/")}`,
+          image: `${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll("\\", "/")}`,
           salePercentage: product.discount ? `${product.discount}%` : "10%",
           productName: product.name,
           description: product.description?.slice(0, 150) || "No description available.",

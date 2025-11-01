@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
-    let res = await axios.get('http://localhost:3001/api/product/fetch')
+    let res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/product/fetch`)
     console.log("our products ", res)
     return res?.data;
 })

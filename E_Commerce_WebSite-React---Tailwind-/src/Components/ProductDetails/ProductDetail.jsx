@@ -28,12 +28,12 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/product/getone/${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/product/getone/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Error fetching product:", err));
 
     axios
-      .get(`http://localhost:3001/api/review/product-reviews?productId=${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/review/product-reviews?productId=${id}`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, [id]);
@@ -60,7 +60,7 @@ const ProductDetails = () => {
     try {
       setSubmitting(true);
       const res = await axios.post(
-        "http://localhost:3001/api/review/create-review",
+        `${import.meta.env.VITE_API_BASE_URL}/review/create-review`,
         {
           productId: id,
           rating: newReview.rating,
@@ -102,7 +102,7 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="relative bg-gray-50 flex items-center justify-center p-8">
             <img
-              src={`http://localhost:3001/${product.image?.replaceAll(
+              src={`${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll(
                 "\\",
                 "/"
               )}`}
