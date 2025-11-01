@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Link, useParams } from "react-router-dom";
+const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
 
 // Carousel Component
 function Carousel({ slides }) {
@@ -85,6 +86,7 @@ function Home() {
       .then((data) => {
         const formatted = data.map((product) => ({
           productId: product._id,
+          // image: `http://localhost:3001/${product.image?.replaceAll("\\", "/")}`,
           image: `${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll("\\", "/")}`,
           salePercentage: product.discount ? `${product.discount}%` : "10%",
           productName: product.name,

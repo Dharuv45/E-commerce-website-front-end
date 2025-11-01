@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Store/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
 import {
   faStar,
   faTruck,
@@ -102,6 +103,10 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="relative bg-gray-50 flex items-center justify-center p-8">
             <img
+              // src={`http://localhost:3001/${product.image?.replaceAll(
+              //   "\\",
+              //   "/"
+              // )}`}
               src={`${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll(
                 "\\",
                 "/"

@@ -5,6 +5,7 @@ import Carousel from "../Components/Carousel/Carousel";
 import { getAllProducts } from "../Components/Store/productSlice";
 import { useSelector, useDispatch } from "react-redux";
 import SkeltenCard from "../Components/SkeltenCard/SkeltenCard";
+const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ const Home = () => {
  console.log("products", products)
   const slides = (products || []).slice(0, 3).map((product) => ({
   productId: product._id,
+  // image: `http://localhost:3001/${product.image?.replaceAll("\\", "/")}`,
   image: `${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll("\\", "/")}`,
+
 })) || [];
 
 console.log("slides", slides)

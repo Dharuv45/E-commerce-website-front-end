@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"
+const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
 import {
   clearCart,
   increaseQuantity,
@@ -9,7 +10,8 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 import StripePayment from "../StripePayment";
 
-const BASE_URL = `${VITE_API_BASE_URL_SOCKET}`;
+// const BASE_URL = "http://localhost:3001";
+const BASE_URL = VITE_API_BASE_URL_SOCKET;
 
 export default function Cart() {
   const cartArr = useSelector((state) => state.cart.cartArr);
