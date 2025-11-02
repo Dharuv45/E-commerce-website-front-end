@@ -4,6 +4,7 @@ import "./index.css";
 import {
   Route,
   RouterProvider,
+  Navigate,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
@@ -67,7 +68,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/google/callback" element={<SignUp />} />
-      <Route path="/" element={<Navigator to="/login" />} />
+      <Route path="/" element={<Navigate to="/login" />} />
     </>
   )
 );

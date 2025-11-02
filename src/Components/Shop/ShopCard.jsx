@@ -2,14 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../Store/cartSlice"; 
-const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
+import { addToCart } from "../Store/cartSlice"; // adjust this path to where your cartSlice2 is
 
+const VITE_API_BASE_URL_SOCKET = import.meta.env.VITE_API_BASE_URL_SOCKET;
 const ShopCard = ({ product }) => {
   const dispatch = useDispatch();
-  // const imageUrl = `http://localhost:3001/${product.image?.replaceAll("\\", "/")}`;
   const imageUrl = `${VITE_API_BASE_URL_SOCKET}/${product.image?.replaceAll("\\", "/")}`;
-
   const isOutOfStock = product.stock === 0;
 
   const discountPercentage = Math.round(

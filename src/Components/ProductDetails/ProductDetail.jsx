@@ -29,7 +29,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/api/product/getone/${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/product/getone/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Error fetching product:", err));
 
